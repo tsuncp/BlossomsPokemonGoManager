@@ -102,9 +102,9 @@ public class PokemonTab extends JPanel {
             if (event.getSource() == pt.getSelectionModel() && pt.getRowSelectionAllowed()) {
                 final int selectedRows = pt.getSelectedRowCount();
                 if (selectedRows >= WHEN_TO_SHOW_SELECTION_TITLE) {
-                    PokemonGoMainWindow.window.setTitle(selectedRows + " Pokémon selected");
+                    PokemonGoMainWindow.getWindow().setTitle(selectedRows + " Pokémon selected");
                 } else {
-                    PokemonGoMainWindow.window.refreshTitle();
+                    PokemonGoMainWindow.getWindow().refreshTitle();
                 }
             }
         });
@@ -686,7 +686,7 @@ public class PokemonTab extends JPanel {
         });
         try {
             go.getInventories().updateInventories(true);
-            PokemonGoMainWindow.window.refreshTitle();
+            PokemonGoMainWindow.getWindow().refreshTitle();
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -728,7 +728,7 @@ public class PokemonTab extends JPanel {
 
                 if (favoriteResult == SetFavoritePokemonResponse.Result.SUCCESS) {
                     System.out.println(String.format(
-                            "Favorite for %s set to %b, Result: Seccess!",
+                            "Favorite for %s set to %b, Result: Success!",
                             PokeHandler.getLocalPokeName(poke),
                             !poke.isFavorite()));
                     success.increment();
@@ -755,7 +755,7 @@ public class PokemonTab extends JPanel {
             }
         });
         try {
-            PokemonGoMainWindow.window.refreshTitle();
+            PokemonGoMainWindow.getWindow().refreshTitle();
         } catch (final Exception e) {
             e.printStackTrace();
         }
